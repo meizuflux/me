@@ -1,3 +1,5 @@
+$cool: #0070f3;
+
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
@@ -36,7 +38,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  color: $cool;
   text-decoration: none;
 }
 
