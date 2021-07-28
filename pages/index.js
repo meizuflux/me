@@ -44,7 +44,7 @@ export default function Home() {
           >
             <h3>Deploy &rarr;</h3>
             <p>
-              vercel pog
+              vercel pog?
             </p>
           </a>
         </div>
