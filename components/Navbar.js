@@ -36,15 +36,19 @@ const Navigation = () => {
 
     const rendered = []
     for (let [name, href, index] of links) {
+        let c = null
+        if (router.pathname === href) {
+            c = hoverBg[colorMode]
+        }
         rendered.push(
-            <NextLink href={href} passHref>
+            <NextLink href={href} passHref key={index}>
                     <Button
                         key={index}
                         as="a"
                         variant="ghost"
                         p={[1, 2, 4]}
                         _hover={{ backgroundColor: hoverBg[colorMode] }}
-                        backgroundColor={hoverBg[colorMode]}
+                        backgroundColor={c}
                         aria-label={name}
                     >
                         {name}
