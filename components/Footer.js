@@ -1,8 +1,8 @@
 import React from 'react'
-import NextLink from 'next/link'
-import { useColorMode, IconButton } from '@chakra-ui/react'
+import { useColorMode, IconButton, Link, Flex } from '@chakra-ui/react'
+import { FiGithub } from "react-icons/fi"
 
-const footer = () => {
+const Footer = () => {
     const { colorMode } = useColorMode()
     const borderIcon = {
         light: 'gray.400',
@@ -18,10 +18,30 @@ const footer = () => {
       ><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
     }
     const socials = [
-        ["GitHub", "https://github.com/ppotatoo", 1]
+        ["GitHub", "https://github.com/ppotatoo", <FiGithub /> ,1]
     ]
     const rendered = []
-    for (let [name, href, index] of socials) {
-        ...
+    for (let [name, href, icon, index] of socials) {
+        <Link href={href} title={name} isExternal key={index}>
+            <IconButton
+                key={index}
+                aria-label={name}
+                icon={icon}
+                size="lg"
+                color={borderIcon[colorMode]}
+                variant="ghost"
+                _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            />
+        </Link>
     }
+    const a = (
+        <Flex align="center" mb={4} direction="column" display={['none', 'flex', 'flex']}>
+            <div aria-label="icons">
+                {rendered}
+            </div>
+        </Flex>
+    )
+    return a
 }
+
+export default Footer
