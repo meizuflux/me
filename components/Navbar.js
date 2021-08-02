@@ -10,18 +10,12 @@ const StickyNav = styled(Flex)`
   position: sticky;
   z-index: 10;
   top: 0;
-  backdrop-filter: saturate(180%) blur(20px);
   transition: height .5s, line-height .5s;
 `
 
 const Navigation = () => {
     const { colorMode } = useColorMode()
     const router = useRouter()
-
-    const colors = {
-        light: '#fff',
-        dark: '#15161a'
-    }
 
     const hoverBg = {
         light: 'gray.100',
@@ -53,7 +47,7 @@ const Navigation = () => {
                     >
                         {name}
                     </Button>
-                </NextLink>
+            </NextLink>
         )
     }
 
@@ -65,14 +59,12 @@ const Navigation = () => {
             maxWidth="800px"
             minWidth="356px"
             width="100%"
-            bg={colors[colorMode]}
             as="nav"
             px={6}
             py={2}
             mt={8}
             mb={[null, 0, 8]}
             mx="auto"
-            display={['none', 'flex', 'flex']}
         >
             <DarkModeSwitch />
             <Box>

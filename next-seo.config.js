@@ -1,5 +1,5 @@
-const title = 'meizuflux'
-const description = 'Personal portfolio for meizuflux'
+const title = 'meizuFlux'
+const description = 'Personal portfolio website'
 
 const SEO = {
     title: title,
