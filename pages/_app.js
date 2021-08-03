@@ -9,9 +9,7 @@ function MyApp({ Component, pageProps }) {
     <ChakraProvider>
       <DefaultSeo {...SEO} />
       <Navigation />
-      
       <Component {...pageProps} />
-
       <Footer />
     </ChakraProvider>
   )
