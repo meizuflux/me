@@ -1,4 +1,3 @@
-import React from 'react'
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 import { Flex, useColorMode, Box, Button } from '@chakra-ui/react'
@@ -10,6 +9,7 @@ const StickyNav = styled(Flex)`
   position: sticky;
   z-index: 10;
   top: 0;
+  opacity: 100%;
   transition: height .5s, line-height .5s;
 `
 
@@ -65,6 +65,7 @@ const Navigation = () => {
             mt={8}
             mb={[null, 0, 8]}
             mx="auto"
+            opacity="100%"
         >
             <DarkModeSwitch />
             <Box>
