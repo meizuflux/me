@@ -14,7 +14,7 @@ const ProjectCard = ({ title, href, children, path, alt}) => {
     }
 
     return (
-        <Link href={href} title={title} isExternal _hover={{boxShadow: boxShadowColor[colorMode]}} mt="1rem">
+        <Link href={href}  w="100%" title={title} isExternal _hover={{boxShadow: boxShadowColor[colorMode]}} mt="1rem">
             <Flex align="center" border="0.5px solid" borderRadius={4} p={4}>
                 <Image src={path} alt={alt} width={["40px", "50px", "60px", "70px"]} ml={2} mr={4} />
                 <Stack w="100%">
