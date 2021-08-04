@@ -19,10 +19,10 @@ export default function Home() {
         <Stack as="main" spacing={8} justifyContent="center" m="0 auto 4rem auto" alignItems="flex-start" maxWidth="750px" px={4}>
             <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="750px">
                 <Heading mb={4} as="h1" size="xl">
-                    Hello, I'm meizuFlux, a developer, gamer, and student learning the full stack experience
+                    Hello, I'm meizuFlux
                 </Heading>
                 <Text color={textColors[colorMode]}>
-                    This website is where I showcase projects, my blog, and experiment with new technologies
+                    This website is where I showcase projects, my blog, and experiment with new technologies. It is a major work in progress.
                 </Text>
 
                 <Divider mb="1.25rem" mt="1rem" alignSelf="center" />
