@@ -4,12 +4,6 @@ import { useState } from "react"
 
 const Todo = () => {
     const toast = useToast()
-    const { colorMode } = useColorMode()
-
-    const textColors = {
-        light: "gray.700",
-        dark: "gray.400"
-    }
 
     const [todos, setTodos] = useState([
         "Learn web dev",
@@ -50,7 +44,7 @@ const Todo = () => {
             <div>
                 <OrderedList spacing={3}>
                     {todos.map((todo, index) =>
-                        <ListItem key={index} color={textColors[colorMode]}>
+                        <ListItem key={index}>
                             <Flex justify="space-between" align="center">
                                 {todo}
                                 <IconButton aria-label="Delete todo item" icon={<DeleteIcon color="red.400" />} onClick={() => removeTodo(todo)} />
