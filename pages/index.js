@@ -1,4 +1,4 @@
-import { Flex, Heading, Stack, useColorMode, Text, Divider, Link } from "@chakra-ui/react"
+import { Flex, Heading, Stack, useColorMode, Text, Divider, Link, Code } from "@chakra-ui/react"
 import ProjectCard from "../components/ProjectCard"
 import Todo from "../components/Todo"
 
@@ -21,7 +21,7 @@ export default function Home() {
                 <Heading mb={4} as="h1" size="xl">
                     Hello, I'm meizuFlux, a developer, gamer, and student learning the full stack experience
                 </Heading>
-                <Text color={textColors[colorMode]}>
+                <Text>
                     This website is where I showcase projects, my blog, and experiment with new technologies
                 </Text>
 
@@ -30,12 +30,12 @@ export default function Home() {
                 <Heading letterSpacing="tight" size="lg" fontWeight="700" as="h2">
                     Projects
                 </Heading>
-                <ProjectCard title="Personal Website" href="/" path="/images/crunch.png" alt="Crunch">
-                    The website you are looking at right now. I'm using it as a portfolio but also as a way to learn React/NextJS.
+                <ProjectCard title="Personal Website" href="https://github.com/ppotatoo/me" path="/images/crunch.png" alt="Crunch">
+                    My personal portfolio website that you are reading this on. I created this with <Code>NextJS</Code> and <Code>Chakra UI</Code>.
                 </ProjectCard>
 
                 <ProjectCard title="CLI" href="https://github.com/reallybadbot" path="/images/cli.png" alt="CLI">
-                    My Discord bot, created with Python. This bot is a rewrite for my <Link color={linkColor[colorMode]} href="https://github.com/ppotatoo/Penguin" isExternal>previous bot</Link>.
+                    A Discord bot I created and am currently working on. I made this with <Code>discord.py</Code>. This is a rewrite of my <Link href="https://github.com/ppotatoo/Penguin" color={linkColor[colorMode]} isExternal>previous bot</Link>. I'm also working on a website for this.
                 </ProjectCard>
 
                 <Divider mb="1.25rem" mt="1rem" alignSelf="center" />

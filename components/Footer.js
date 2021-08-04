@@ -1,4 +1,4 @@
-import { useColorMode, IconButton, Link, Flex } from '@chakra-ui/react'
+import { useColorMode, IconButton, Link, Flex, Text } from '@chakra-ui/react'
 import { FiGithub, FiYoutube } from "react-icons/fi"
 import { FaDiscord } from "react-icons/fa"
 
@@ -20,6 +20,7 @@ const Footer = () => {
     ]
     return (
         <Flex align="center" mb={4} direction="column" display={['none', 'flex', 'flex']}>
+            <Text>Copyright 2021 meizuFlux</Text>
             <div>
                 {test.map((social) => 
                     <Link href={social.url} title={social.name} isExternal key={social.name}>
