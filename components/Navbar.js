@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Flex, useColorMode, Box, Button } from '@chakra-ui/react'
+import { Flex, useColorMode, Box, Button, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 import DarkModeSwitch from '../components/DarkModeSwitch'
@@ -9,17 +9,22 @@ const StickyNav = styled(Flex)`
   position: sticky;
   z-index: 10;
   top: 0;
-  opacity: 100%;
   transition: height .5s, line-height .5s;
 `
 
 const Navigation = () => {
     const { colorMode } = useColorMode()
+    const bg = useColorModeValue("white", "gray.800")
     const router = useRouter()
 
     const hoverBg = {
         light: 'gray.100',
         dark: 'gray.700',
+    }
+
+    const navBg = {
+        light: "white",
+        dark: "gray"
     }
 
     const links = [
@@ -58,14 +63,14 @@ const Navigation = () => {
             alignItems="center"
             maxWidth="800px"
             minWidth="356px"
-            width="100%"
             as="nav"
+            bg={bg}
             px={6}
             py={2}
-            mt={8}
+            mt={[null, 0, 8]}
             mb={[null, 0, 8]}
             mx="auto"
-            opacity="100%"
+            display={['none', 'flex', 'flex']}
         >
             <DarkModeSwitch />
             <Box>
