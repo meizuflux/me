@@ -1,13 +1,14 @@
 import { DeleteIcon } from "@chakra-ui/icons"
-import { useToast, useColorMode, Stack, Heading, Text, Input, Button, OrderedList, ListItem, Flex, IconButton } from "@chakra-ui/react"
+import { useToast, Stack, Heading, Text, Input, Button, OrderedList, ListItem, Flex, IconButton, Divider, Box, FormControl, FormLabel, HStack, InputGroup, useEditableControls, EditablePreview, EditableInput, Badge } from "@chakra-ui/react"
+import { nanoid } from "nanoid"
 import { useState } from "react"
 
 const Todo = () => {
     const toast = useToast()
 
     const [todos, setTodos] = useState([
-        "Learn web dev",
-        "Actually finish a project"
+        {id: 1, text: "Learn web dev"},
+        {id: 2, text: "Improve meizuflux.com"}
     ])
 
     const [todo, setTodo] = useState('')
@@ -19,43 +20,60 @@ const Todo = () => {
     function submitTodo(e) {
         e.preventDefault()
 
+        console.log(todos.length)
+
         if (todo == "") {
             toast({
                 title: "Todos must not be empty",
                 description: "Make sure to provide todo text.",
-                status: "warning",
+                status: "error",
                 duration: 600 * 5,
                 isClosable: true
             })
         }
         else {
-            setTodos([...todos, todo])
+            setTodos([...todos, {id: nanoid(), text: todo}])
             setTodo("")
         }
     }
 
     return (
-        <Stack spacing={4} w="100%">
-            <Heading letterSpacing="tight" mt={8} size="lg" as="h2">
-                Todo List
+        <Stack spacing="0.5rem" w="100%">
+            <Heading letterSpacing="tight" mt="1rem" size="lg" as="h2">
+                To-Do List
             </Heading>
-            <Text>Here are some things on my Todo List</Text>
+            <Text>Here are some things on my To-Do List</Text>
+            
+            <Divider mt="4523452345rem" mb="10px" alignSelf="center" />
 
-            <div>
-                <OrderedList spacing={3}>
-                    {todos.map((todo, index) =>
-                        <ListItem key={index}>
-                            <Flex justify="space-between" align="center">
-                                {todo}
-                                <IconButton aria-label="Delete todo item" icon={<DeleteIcon color="red.400" />} onClick={() => removeTodo(todo)} />
-                            </Flex>
-                        </ListItem>
-                    )}
-                </OrderedList>
-            </div>
+            {
+                (() => {
+                    if (!todos.length) {
+                        return <Badge p="4" m="5" borderRadius="4" textAlign="center">NO TODO ITEMS. ADD ONE BELOW.</Badge>
+                    }
+                    return (
+                        <Box mb={3}>
+                            <OrderedList spacing={1.5}>
+                                {todos.map((todo, index) =>
+                                    <ListItem key={index}>
+                                        <Flex justify="space-between" align="center">
+                                            {todo.text}
+                                            <IconButton size="sm" mt="0px" mb="0px" aria-label="Delete todo item" icon={<DeleteIcon color="red.500" />} onClick={() => removeTodo(todo)} />
+                                        </Flex>
+                                    </ListItem>
+                                )}
+                            </OrderedList>
+                        </Box>
+                    )
+                })()
+            }
 
-            <Input variant="outline" type="text" mt={5} placeholder="Enter your todo..." value={todo} onChange={e => setTodo(e.target.value)} />
-            <Button onClick={submitTodo}>Add Todo</Button>
+            <form onSubmit={submitTodo}>
+                <HStack spacing={1}>
+                    <Input type="text" placeholder="Enter your To-Do item..." value={todo} onChange={e => setTodo(e.target.value)} onSubmit={submitTodo}/>
+                    <Button onClick={submitTodo} variant="outline">Add Item</Button>     
+                </HStack>
+            </form>
         </Stack>
     )
 }
