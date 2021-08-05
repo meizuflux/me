@@ -25,7 +25,7 @@ export default function Home() {
                     This website is where I showcase projects, my blog, and experiment with new technologies. It's a major work in progress so don't be surprised when crap is broken.
                 </Text>
 
-                <Divider mb="1.25rem" mt="1rem" alignSelf="center" />
+                <Divider mb="1.25rem" mt="1.25rem" alignSelf="center" />
 
                 <Heading letterSpacing="tight" size="lg" fontWeight="700" as="h2">
                     Projects
@@ -38,7 +38,7 @@ export default function Home() {
                     A Discord bot I created and am currently working on. I made this with <Code>discord.py</Code>. This is a rewrite of my <Link href="https://github.com/ppotatoo/Penguin" color={linkColor[colorMode]} isExternal>previous bot</Link>. I'm also working on a website for this.
                 </ProjectCard>
 
-                <Divider mb="1.25rem" mt="1rem" alignSelf="center" />
+                <Divider mb="1.25rem" mt="1.25rem" alignSelf="center" />
 
                 <Todo />
             </Flex>
