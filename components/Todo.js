@@ -14,7 +14,7 @@ const Todo = () => {
     const [todo, setTodo] = useState('')
 
     const removeTodo = todo => {
-        setTodos(todos.filter(t => t !== todo))
+        setTodos(todos.filter(t => t.id !== todo.id))
     }
 
     function submitTodo(e) {
