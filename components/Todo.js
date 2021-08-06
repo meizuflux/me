@@ -20,8 +20,6 @@ const Todo = () => {
     function submitTodo(e) {
         e.preventDefault()
 
-        console.log(todos.length)
-
         if (todo == "") {
             toast({
                 title: "Todos must not be empty",
