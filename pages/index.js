@@ -30,12 +30,12 @@ export default function Home() {
                 <Heading letterSpacing="tight" size="lg" fontWeight="700" as="h2">
                     Projects
                 </Heading>
-                <ProjectCard title="Personal Website" href="https://github.com/ppotatoo/me" path="/images/crunch.png" alt="Crunch">
+                <ProjectCard title="Personal Website" href="https://github.com/meizuflux/me" path="/images/crunch.png" alt="cinnamon toast crunch">
                     My personal portfolio website that you are reading this on. I created this with <Code>NextJS</Code> and <Code>Chakra UI</Code>.
                 </ProjectCard>
 
-                <ProjectCard title="CLI" href="https://github.com/reallybadbot" path="/images/cli.png" alt="CLI">
-                    A Discord bot I created and am currently working on. I made this with <Code>discord.py</Code>. This is a rewrite of my <Link href="https://github.com/ppotatoo/Penguin" color={linkColor[colorMode]} isExternal>previous bot</Link>. I'm also working on a website for this.
+                <ProjectCard title="mzf.one" href="https://github.com/meizuflux/mzf.one" path="/images/mzf.one.png" alt="mzf.one logo">
+                    A URL Shortner that I designed myself with <Code>SolidJS</Code> as the frontend, <Code>Bootstrap 5</Code> for styling, and a Python <Code>Starlette</Code> backend. It's served on my VPS with <Code>nginx</Code> as a proxy.
                 </ProjectCard>
 
                 <Divider mb="1.25rem" mt="1.25rem" alignSelf="center" />

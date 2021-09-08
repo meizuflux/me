@@ -3,7 +3,6 @@ import { useRouter } from 'next/router'
 import { Flex, useColorMode, Box, Button, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
-import DarkModeSwitch from '../components/DarkModeSwitch'
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -12,69 +11,56 @@ const StickyNav = styled(Flex)`
   transition: height .5s, line-height .5s;
 `
 
+const NavButton = ({router, link}) => {
+    const current = router.pathname == link.href
+
+    return (
+        <NextLink href={link.href} key={link.caption}>
+                <Button
+                    key={link.caption}
+                    variant="outline"
+                    variant={current ? "ghost" : "outline"}
+                    p={[1, 3, 4]}
+                    _hover={{ backgroundColor: "gray.700" }}
+                    backgroundColor={current ? "gray.700" : null }
+                >
+                    {link.caption}
+                </Button>
+        </NextLink>
+    )
+}
+
 const Navigation = () => {
-    const { colorMode } = useColorMode()
-    const bg = useColorModeValue("white", "gray.800")
     const router = useRouter()
 
-    const hoverBg = {
-        light: 'gray.100',
-        dark: 'gray.700',
-    }
-
-    const navBg = {
-        light: "white",
-        dark: "gray"
-    }
-
     const links = [
-        ["Home", "/", 1],
-        ["Blog", "/blog", 2],
-        ["Projects", "/projects", 3]
+        {"caption": "Blog", "href": "/blog"},
+        {"caption": "Projects", "href": "/projects"},
     ]
 
-    const rendered = []
-    for (let [name, href, index] of links) {
-        let c = null
-        if (router.pathname === href) {
-            c = hoverBg[colorMode]
-        }
-        rendered.push(
-            <NextLink href={href} passHref key={index}>
-                    <Button
-                        key={index}
-                        as="a"
-                        variant="ghost"
-                        p={[1, 2, 4]}
-                        _hover={{ backgroundColor: hoverBg[colorMode] }}
-                        backgroundColor={c}
-                        aria-label={name}
-                    >
-                        {name}
-                    </Button>
-            </NextLink>
-        )
-    }
 
     return (
         <StickyNav
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
-            maxWidth="800px"
-            minWidth="356px"
+            maxWidth="750px"
+            minWidth="0px"
             as="nav"
-            bg={bg}
-            px={6}
+            bg="gray.800"
+            px={4}
             py={2}
+            m="0 auto 4rem auto"
             mt={[null, 0, 8]}
             mb={[null, 0, 8]}
             mx="auto"
             display={['none', 'flex', 'flex']}
         >
-            <DarkModeSwitch />
+            <NavButton router={router} link={{"caption": "Home", "href": "/"}}/>
             <Box>
-                {rendered}
+                {links.map((link) => (
+                    <NavButton router={router} link={link} />
+                ))}
             </Box>
         </StickyNav>
     )
