@@ -1,4 +1,4 @@
-const title = 'meizuFlux'
+const title = 'meizuflux'
 const description = 'Personal portfolio website'
 
 const SEO = {
@@ -8,12 +8,12 @@ const SEO = {
     openGraph: {
         type: 'website',
         locale: 'en_IE',
-        url: 'https://meizuflux.pages.dev',
+        url: 'https://meizuflux.com',
         title: title,
         description: description,
         images: [
             {
-                url: 'https://i.imgflip.com/415gxp.jpg',
+                url: '/favicon.ico',
                 alt: title
             }
         ]

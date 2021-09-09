@@ -7,11 +7,13 @@ const Todo = () => {
     const toast = useToast()
 
     const [todos, setTodos] = useState([
-        {id: 1, text: "Learn web dev"},
-        {id: 2, text: "Improve meizuflux.com"}
+        {id: 1, text: "Improve meizuflux.com"},
+        {id: 2, text: "Get better with nginx"},
+        {id: 3, text: "Learn a compiled programming language"},
+        {id: 4, text: "Grow my YouTube channel"}
     ])
 
-    const [todo, setTodo] = useState('')
+    const [todo, setTodo] = useState("")
 
     const removeTodo = todo => {
         setTodos(todos.filter(t => t.id !== todo.id))
@@ -67,7 +69,7 @@ const Todo = () => {
             }
 
             <form onSubmit={submitTodo}>
-                <HStack spacing={1}>
+                <HStack spacing={1} pt={3}>
                     <Input type="text" placeholder="Enter your To-Do item..." value={todo} onChange={e => setTodo(e.target.value)} onSubmit={submitTodo}/>
                     <Button onClick={submitTodo} variant="outline">Add Item</Button>     
                 </HStack>

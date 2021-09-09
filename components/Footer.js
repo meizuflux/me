@@ -14,7 +14,7 @@ const Footer = () => {
     }
 
     const test = [
-        {name: "GitHub", url: "https://github.com/ppotatoo", icon: <FiGithub />},
+        {name: "GitHub", url: "https://github.com/meizuflux", icon: <FiGithub />},
         {name: "Discord", url: "https://discord.com/users/809587169520910346", icon: <FaDiscord />},
         {name: "YouTube", url: "https://www.youtube.com/channel/UCymZdclkcHqM1SbCesRnkYg", icon: <FiYoutube />}
     ]
