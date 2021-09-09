@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import { useRouter } from 'next/router'
-import { Flex, useColorMode, Box, Button, useColorModeValue } from '@chakra-ui/react'
+import { Flex, Box, Button, HStack } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 
 
@@ -15,10 +15,8 @@ const NavButton = ({router, link}) => {
     const current = router.pathname == link.href
 
     return (
-        <NextLink href={link.href} key={link.caption}>
+        <NextLink href={link.href}>
                 <Button
-                    key={link.caption}
-                    variant="outline"
                     variant={current ? "ghost" : "outline"}
                     p={[1, 3, 4]}
                     _hover={{ backgroundColor: "gray.700" }}
@@ -57,11 +55,11 @@ const Navigation = () => {
             display={['none', 'flex', 'flex']}
         >
             <NavButton router={router} link={{"caption": "Home", "href": "/"}}/>
-            <Box>
+            <HStack spacing={3}>
                 {links.map((link) => (
-                    <NavButton router={router} link={link} />
+                    <NavButton router={router} link={link} key={link.caption} />
                 ))}
-            </Box>
+            </HStack>
         </StickyNav>
     )
 }
