@@ -17,7 +17,7 @@ const NavButton = ({router, link}) => {
     return (
         <NextLink href={link.href}>
                 <Button
-                    variant={current ? "ghost" : "outline"}
+                    variant={current ? "ghost" : null}
                     p={[1, 3, 4]}
                     _hover={{ backgroundColor: "gray.700" }}
                     backgroundColor={current ? "gray.700" : null }
@@ -38,29 +38,36 @@ const Navigation = () => {
 
 
     return (
-        <StickyNav
-            flexDirection="row"
-            justifyContent="space-between"
-            alignItems="center"
-            maxWidth="750px"
-            minWidth="0px"
+        <Box
+            position="sticky"
+            zIndex="10"
+            top="0"
+            width="100%"
             as="nav"
-            bg="gray.800"
-            px={4}
-            py={2}
-            m="0 auto 4rem auto"
-            mt={[null, 0, 8]}
-            mb={[null, 0, 8]}
-            mx="auto"
-            display={['none', 'flex', 'flex']}
         >
-            <NavButton router={router} link={{"caption": "Home", "href": "/"}}/>
-            <HStack spacing={3}>
-                {links.map((link) => (
-                    <NavButton router={router} link={link} key={link.caption} />
-                ))}
-            </HStack>
-        </StickyNav>
+            <Flex
+                flexDirection="row"
+                justifyContent="space-between"
+                alignItems="center"
+                maxWidth="750px"
+                minWidth="0px"
+                as="div"
+                px={4}
+                py={2}
+                m="0 auto 4rem auto"
+                mb={[null, 0, 8]}
+                mx="auto"
+                display={['none', 'flex', 'flex']}
+            >
+                <NavButton router={router} link={{"caption": "Home", "href": "/"}}/>
+                <HStack spacing={3}>
+                    {links.map((link) => (
+                        <NavButton router={router} link={link} key={link.caption} />
+                    ))}
+                </HStack>
+            </Flex>
+            
+        </Box>
     )
 }
 
