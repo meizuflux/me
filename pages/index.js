@@ -3,7 +3,6 @@ import ProjectCard from "../components/ProjectCard"
 import Todo from "../components/Todo"
 
 export default function Home() {
-
     return (
         <Stack as="main" spacing={8} justifyContent="center" m="0 auto 4rem auto" alignItems="flex-start" maxWidth="750px" px={4}>
             <Flex flexDirection="column" justifyContent="flex-start" alignItems="flex-start" maxWidth="750px">
